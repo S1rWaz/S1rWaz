@@ -1,0 +1,1450 @@
+local colorPicker = {}
+
+colorPicker.__index = colorPicker;
+
+local colorPickers = {}
+
+function colorPicker.newColorPicker(name)
+	local a = {}
+	
+	a.Name = name
+	a.Toggled = false
+	a.Color = nil
+	
+	local ColorPick = Instance.new("ScreenGui")
+	local ColorPicker = Instance.new("Frame")
+	local Content = Instance.new("Frame")
+	local ColorStrip = Instance.new("ImageLabel")
+	local UICorner = Instance.new("UICorner")
+	local Preview = Instance.new("Frame")
+	local UICorner_2 = Instance.new("UICorner")
+	local Title = Instance.new("TextLabel")
+	local ColorSpaceFrame = Instance.new("Frame")
+	local ColorSpace = Instance.new("ImageLabel")
+	local Scope = Instance.new("Frame")
+	local Line = Instance.new("Frame")
+	local Line_2 = Instance.new("Frame")
+	local UICorner_3 = Instance.new("UICorner")
+	local UICorner_4 = Instance.new("UICorner")
+	local ArrowFrame = Instance.new("Frame")
+	local Arrow = Instance.new("Frame")
+	local Frame = Instance.new("Frame")
+	local Frame_2 = Instance.new("Frame")
+	local Frame_3 = Instance.new("Frame")
+	local Frame_4 = Instance.new("Frame")
+	local Frame_5 = Instance.new("Frame")
+	local Hue = Instance.new("Frame")
+	local Input = Instance.new("TextBox")
+	local ArrowFrame_2 = Instance.new("Frame")
+	local Up = Instance.new("TextButton")
+	local Arrow_2 = Instance.new("Frame")
+	local Frame_6 = Instance.new("Frame")
+	local Frame_7 = Instance.new("Frame")
+	local Frame_8 = Instance.new("Frame")
+	local Down = Instance.new("TextButton")
+	local Arrow_3 = Instance.new("Frame")
+	local Frame_9 = Instance.new("Frame")
+	local Frame_10 = Instance.new("Frame")
+	local Frame_11 = Instance.new("Frame")
+	local Title_2 = Instance.new("TextLabel")
+	local UICorner_5 = Instance.new("UICorner")
+	local Sat = Instance.new("Frame")
+	local Input_2 = Instance.new("TextBox")
+	local ArrowFrame_3 = Instance.new("Frame")
+	local Up_2 = Instance.new("TextButton")
+	local Arrow_4 = Instance.new("Frame")
+	local Frame_12 = Instance.new("Frame")
+	local Frame_13 = Instance.new("Frame")
+	local Frame_14 = Instance.new("Frame")
+	local Down_2 = Instance.new("TextButton")
+	local Arrow_5 = Instance.new("Frame")
+	local Frame_15 = Instance.new("Frame")
+	local Frame_16 = Instance.new("Frame")
+	local Frame_17 = Instance.new("Frame")
+	local Title_3 = Instance.new("TextLabel")
+	local UICorner_6 = Instance.new("UICorner")
+	local Val = Instance.new("Frame")
+	local Input_3 = Instance.new("TextBox")
+	local ArrowFrame_4 = Instance.new("Frame")
+	local Up_3 = Instance.new("TextButton")
+	local Arrow_6 = Instance.new("Frame")
+	local Frame_18 = Instance.new("Frame")
+	local Frame_19 = Instance.new("Frame")
+	local Frame_20 = Instance.new("Frame")
+	local Down_3 = Instance.new("TextButton")
+	local Arrow_7 = Instance.new("Frame")
+	local Frame_21 = Instance.new("Frame")
+	local Frame_22 = Instance.new("Frame")
+	local Frame_23 = Instance.new("Frame")
+	local Title_4 = Instance.new("TextLabel")
+	local UICorner_7 = Instance.new("UICorner")
+	local Green = Instance.new("Frame")
+	local Input_4 = Instance.new("TextBox")
+	local ArrowFrame_5 = Instance.new("Frame")
+	local Up_4 = Instance.new("TextButton")
+	local Arrow_8 = Instance.new("Frame")
+	local Frame_24 = Instance.new("Frame")
+	local Frame_25 = Instance.new("Frame")
+	local Frame_26 = Instance.new("Frame")
+	local Down_4 = Instance.new("TextButton")
+	local Arrow_9 = Instance.new("Frame")
+	local Frame_27 = Instance.new("Frame")
+	local Frame_28 = Instance.new("Frame")
+	local Frame_29 = Instance.new("Frame")
+	local Title_5 = Instance.new("TextLabel")
+	local UICorner_8 = Instance.new("UICorner")
+	local Red = Instance.new("Frame")
+	local Input_5 = Instance.new("TextBox")
+	local ArrowFrame_6 = Instance.new("Frame")
+	local Up_5 = Instance.new("TextButton")
+	local Arrow_10 = Instance.new("Frame")
+	local Frame_30 = Instance.new("Frame")
+	local Frame_31 = Instance.new("Frame")
+	local Frame_32 = Instance.new("Frame")
+	local Down_5 = Instance.new("TextButton")
+	local Arrow_11 = Instance.new("Frame")
+	local Frame_33 = Instance.new("Frame")
+	local Frame_34 = Instance.new("Frame")
+	local Frame_35 = Instance.new("Frame")
+	local Title_6 = Instance.new("TextLabel")
+	local UICorner_9 = Instance.new("UICorner")
+	local Blue = Instance.new("Frame")
+	local Input_6 = Instance.new("TextBox")
+	local ArrowFrame_7 = Instance.new("Frame")
+	local Up_6 = Instance.new("TextButton")
+	local Arrow_12 = Instance.new("Frame")
+	local Frame_36 = Instance.new("Frame")
+	local Frame_37 = Instance.new("Frame")
+	local Frame_38 = Instance.new("Frame")
+	local Down_6 = Instance.new("TextButton")
+	local Arrow_13 = Instance.new("Frame")
+	local Frame_39 = Instance.new("Frame")
+	local Frame_40 = Instance.new("Frame")
+	local Frame_41 = Instance.new("Frame")
+	local Title_7 = Instance.new("TextLabel")
+	local UICorner_10 = Instance.new("UICorner")
+	local Ok = Instance.new("TextButton")
+	local UICorner_11 = Instance.new("UICorner")
+	local Cancel = Instance.new("TextButton")
+	local UICorner_12 = Instance.new("UICorner")
+	local UICorner_13 = Instance.new("UICorner")
+	local BasicColors = Instance.new("Frame")
+	local CustomColors = Instance.new("Frame")
+	local TopBar = Instance.new("Frame")
+	local UICorner_14 = Instance.new("UICorner")
+	local Excess = Instance.new("Frame")
+
+	--Properties:
+
+	ColorPick.Name = "ColorPick"
+	ColorPick.Parent = game.CoreGui
+	ColorPick.Enabled = true
+	ColorPick.ResetOnSpawn = true
+
+	ColorPicker.Name = "ColorPicker"
+	ColorPicker.Parent = ColorPick
+	ColorPicker.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+	ColorPicker.BackgroundTransparency = 1.000
+	ColorPicker.BorderSizePixel = 0
+	ColorPicker.Position = UDim2.new(0.074213244, 0, 0.20696722, 0)
+	ColorPicker.Size = UDim2.new(0, 450, 0, 330)
+	ColorPicker.ZIndex = -1
+	ColorPicker.Visible = false;
+
+	Content.Name = "Content"
+	Content.Parent = ColorPicker
+	Content.Active = true
+	Content.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Content.BorderColor3 = Color3.fromRGB(37, 53, 54)
+	Content.Position = UDim2.new(0, 0, 0.200000003, 0)
+	Content.Size = UDim2.new(1, -2, 0.869696975, -25)
+
+	ColorStrip.Name = "ColorStrip"
+	ColorStrip.Parent = Content
+	ColorStrip.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	ColorStrip.BorderColor3 = Color3.fromRGB(96, 96, 96)
+	ColorStrip.BorderSizePixel = 0
+	ColorStrip.Position = UDim2.new(0.616071403, -30, 0.0419847295, 5)
+	ColorStrip.Size = UDim2.new(0, 13, 0, 200)
+	ColorStrip.Image = "rbxassetid://1072518502"
+
+	UICorner.Parent = ColorStrip
+
+	Preview.Name = "Preview"
+	Preview.Parent = Content
+	Preview.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Preview.BorderColor3 = Color3.fromRGB(96, 96, 96)
+	Preview.BorderSizePixel = 0
+	Preview.Position = UDim2.new(1.50446427, -260, 0.0877862573, 211)
+	Preview.Size = UDim2.new(-0.0329999998, 35, 1.00800002, -244)
+	Preview.ZIndex = 2
+
+	UICorner_2.CornerRadius = UDim.new(1, 0)
+	UICorner_2.Parent = Preview
+
+	Title.Name = "Title"
+	Title.Parent = Preview
+	Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Title.BackgroundTransparency = 1.000
+	Title.Position = UDim2.new(0, -120, 0, 0)
+	Title.Size = UDim2.new(3.75939846, 34, 1, 0)
+	Title.Font = Enum.Font.GothamSemibold
+	Title.Text = "Color Preview:"
+	Title.TextColor3 = Color3.fromRGB(148, 180, 255)
+	Title.TextScaled = true
+	Title.TextSize = 14.000
+	Title.TextWrapped = true
+
+	ColorSpaceFrame.Name = "ColorSpaceFrame"
+	ColorSpaceFrame.Parent = Content
+	ColorSpaceFrame.BackgroundColor3 = Color3.fromRGB(96, 96, 96)
+	ColorSpaceFrame.BorderSizePixel = 0
+	ColorSpaceFrame.ClipsDescendants = true
+	ColorSpaceFrame.Position = UDim2.new(0.618303537, -261, 0.0419847332, 4)
+	ColorSpaceFrame.Size = UDim2.new(0, 222, 0, 202)
+
+	ColorSpace.Name = "ColorSpace"
+	ColorSpace.Parent = ColorSpaceFrame
+	ColorSpace.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	ColorSpace.BorderColor3 = Color3.fromRGB(96, 96, 96)
+	ColorSpace.BorderSizePixel = 0
+	ColorSpace.Size = UDim2.new(1, 0, 1, 0)
+	ColorSpace.Image = "rbxassetid://1072518406"
+
+	Scope.Name = "Scope"
+	Scope.Parent = ColorSpace
+	Scope.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Scope.BackgroundTransparency = 1.000
+	Scope.BorderSizePixel = 0
+	Scope.Position = UDim2.new(0, 210, 0, 190)
+	Scope.Size = UDim2.new(0, 20, 0, 20)
+
+	Line.Name = "Line"
+	Line.Parent = Scope
+	Line.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+	Line.BorderSizePixel = 0
+	Line.Position = UDim2.new(0, 9, 0, 0)
+	Line.Size = UDim2.new(0, 2, 0, 20)
+
+	Line_2.Name = "Line"
+	Line_2.Parent = Scope
+	Line_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+	Line_2.BorderSizePixel = 0
+	Line_2.Position = UDim2.new(0, 0, 0, 9)
+	Line_2.Size = UDim2.new(0, 20, 0, 2)
+
+	UICorner_3.CornerRadius = UDim.new(0, 10)
+	UICorner_3.Parent = ColorSpace
+
+	UICorner_4.CornerRadius = UDim.new(0, 20)
+	UICorner_4.Parent = ColorSpaceFrame
+
+	ArrowFrame.Name = "ArrowFrame"
+	ArrowFrame.Parent = Content
+	ArrowFrame.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+	ArrowFrame.BackgroundTransparency = 1.000
+	ArrowFrame.BorderSizePixel = 0
+	ArrowFrame.Position = UDim2.new(0.631696463, -16, 0.0419847332, 1)
+	ArrowFrame.Size = UDim2.new(0, 5, 0, 200)
+
+	Arrow.Name = "Arrow"
+	Arrow.Parent = ArrowFrame
+	Arrow.BackgroundTransparency = 1.000
+	Arrow.Position = UDim2.new(0, -2, 0, -4)
+	Arrow.Size = UDim2.new(0, 8, 0, 16)
+
+	Frame.Parent = Arrow
+	Frame.BackgroundColor3 = Color3.fromRGB(148, 180, 255)
+	Frame.BorderSizePixel = 0
+	Frame.Position = UDim2.new(0, 2, 0, 8)
+	Frame.Size = UDim2.new(0, 1, 0, 1)
+
+	Frame_2.Parent = Arrow
+	Frame_2.BackgroundColor3 = Color3.fromRGB(148, 180, 255)
+	Frame_2.BorderSizePixel = 0
+	Frame_2.Position = UDim2.new(0, 3, 0, 7)
+	Frame_2.Size = UDim2.new(0, 1, 0, 3)
+
+	Frame_3.Parent = Arrow
+	Frame_3.BackgroundColor3 = Color3.fromRGB(148, 180, 255)
+	Frame_3.BorderSizePixel = 0
+	Frame_3.Position = UDim2.new(0, 4, 0, 6)
+	Frame_3.Size = UDim2.new(0, 1, 0, 5)
+
+	Frame_4.Parent = Arrow
+	Frame_4.BackgroundColor3 = Color3.fromRGB(148, 180, 255)
+	Frame_4.BorderSizePixel = 0
+	Frame_4.Position = UDim2.new(0, 5, 0, 5)
+	Frame_4.Size = UDim2.new(0, 1, 0, 7)
+
+	Frame_5.Parent = Arrow
+	Frame_5.BackgroundColor3 = Color3.fromRGB(148, 180, 255)
+	Frame_5.BorderSizePixel = 0
+	Frame_5.Position = UDim2.new(0, 6, 0, 4)
+	Frame_5.Size = UDim2.new(0, 1, 0, 9)
+
+	Hue.Name = "Hue"
+	Hue.Parent = Content
+	Hue.BackgroundColor3 = Color3.fromRGB(148, 180, 255)
+	Hue.BorderColor3 = Color3.fromRGB(96, 96, 96)
+	Hue.BorderSizePixel = 0
+	Hue.Position = UDim2.new(1.24776781, -180, -0.744274795, 211)
+	Hue.Size = UDim2.new(0, 46, 0, 16)
+
+	Input.Name = "Input"
+	Input.Parent = Hue
+	Input.BackgroundColor3 = Color3.fromRGB(64, 64, 64)
+	Input.BackgroundTransparency = 1.000
+	Input.BorderColor3 = Color3.fromRGB(96, 96, 96)
+	Input.Position = UDim2.new(0, 2, 0, 0)
+	Input.Size = UDim2.new(0, 50, 0, 16)
+	Input.Font = Enum.Font.SourceSans
+	Input.Text = ""
+	Input.TextColor3 = Color3.fromRGB(220, 220, 220)
+	Input.TextSize = 14.000
+	Input.TextXAlignment = Enum.TextXAlignment.Left
+
+	ArrowFrame_2.Name = "ArrowFrame"
+	ArrowFrame_2.Parent = Input
+	ArrowFrame_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	ArrowFrame_2.BackgroundTransparency = 1.000
+	ArrowFrame_2.BorderSizePixel = 0
+	ArrowFrame_2.Position = UDim2.new(1, -8, 0, 0)
+	ArrowFrame_2.Size = UDim2.new(0, 16, 1, 0)
+
+	Up.Name = "Up"
+	Up.Parent = ArrowFrame_2
+	Up.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Up.BackgroundTransparency = 1.000
+	Up.BorderSizePixel = 0
+	Up.Size = UDim2.new(1, 0, 0, 8)
+	Up.AutoButtonColor = false
+	Up.Font = Enum.Font.SourceSans
+	Up.Text = ""
+	Up.TextSize = 14.000
+
+	Arrow_2.Name = "Arrow"
+	Arrow_2.Parent = Up
+	Arrow_2.BackgroundTransparency = 1.000
+	Arrow_2.Size = UDim2.new(0, 16, 0, 8)
+
+	Frame_6.Parent = Arrow_2
+	Frame_6.BackgroundColor3 = Color3.fromRGB(83, 116, 209)
+	Frame_6.BorderSizePixel = 0
+	Frame_6.Position = UDim2.new(0, 8, 0, 3)
+	Frame_6.Size = UDim2.new(0, 1, 0, 1)
+
+	Frame_7.Parent = Arrow_2
+	Frame_7.BackgroundColor3 = Color3.fromRGB(83, 116, 209)
+	Frame_7.BorderSizePixel = 0
+	Frame_7.Position = UDim2.new(0, 7, 0, 4)
+	Frame_7.Size = UDim2.new(0, 3, 0, 1)
+
+	Frame_8.Parent = Arrow_2
+	Frame_8.BackgroundColor3 = Color3.fromRGB(83, 116, 209)
+	Frame_8.BorderSizePixel = 0
+	Frame_8.Position = UDim2.new(0, 6, 0, 5)
+	Frame_8.Size = UDim2.new(0, 5, 0, 1)
+
+	Down.Name = "Down"
+	Down.Parent = ArrowFrame_2
+	Down.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Down.BackgroundTransparency = 1.000
+	Down.BorderSizePixel = 0
+	Down.Position = UDim2.new(0, 0, 0, 8)
+	Down.Size = UDim2.new(1, 0, 0, 8)
+	Down.AutoButtonColor = false
+	Down.Font = Enum.Font.SourceSans
+	Down.Text = ""
+	Down.TextSize = 14.000
+
+	Arrow_3.Name = "Arrow"
+	Arrow_3.Parent = Down
+	Arrow_3.BackgroundTransparency = 1.000
+	Arrow_3.Size = UDim2.new(0, 16, 0, 8)
+
+	Frame_9.Parent = Arrow_3
+	Frame_9.BackgroundColor3 = Color3.fromRGB(83, 116, 209)
+	Frame_9.BorderSizePixel = 0
+	Frame_9.Position = UDim2.new(0, 8, 0, 5)
+	Frame_9.Size = UDim2.new(0, 1, 0, 1)
+
+	Frame_10.Parent = Arrow_3
+	Frame_10.BackgroundColor3 = Color3.fromRGB(83, 116, 209)
+	Frame_10.BorderSizePixel = 0
+	Frame_10.Position = UDim2.new(0, 7, 0, 4)
+	Frame_10.Size = UDim2.new(0, 3, 0, 1)
+
+	Frame_11.Parent = Arrow_3
+	Frame_11.BackgroundColor3 = Color3.fromRGB(83, 116, 209)
+	Frame_11.BorderSizePixel = 0
+	Frame_11.Position = UDim2.new(0, 6, 0, 3)
+	Frame_11.Size = UDim2.new(0, 5, 0, 1)
+
+	Title_2.Name = "Title"
+	Title_2.Parent = Hue
+	Title_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Title_2.BackgroundTransparency = 1.000
+	Title_2.Position = UDim2.new(0, -40, 0, 0)
+	Title_2.Size = UDim2.new(0, 34, 1, 0)
+	Title_2.Font = Enum.Font.SourceSans
+	Title_2.Text = "Hue:"
+	Title_2.TextColor3 = Color3.fromRGB(148, 180, 255)
+	Title_2.TextScaled = true
+	Title_2.TextSize = 14.000
+	Title_2.TextWrapped = true
+	Title_2.TextXAlignment = Enum.TextXAlignment.Right
+
+	UICorner_5.CornerRadius = UDim.new(0, 3)
+	UICorner_5.Parent = Hue
+
+	Sat.Name = "Sat"
+	Sat.Parent = Content
+	Sat.BackgroundColor3 = Color3.fromRGB(148, 180, 255)
+	Sat.BorderColor3 = Color3.fromRGB(96, 96, 96)
+	Sat.BorderSizePixel = 0
+	Sat.Position = UDim2.new(1.24776781, -180, -0.744274795, 233)
+	Sat.Size = UDim2.new(0, 46, 0, 16)
+
+	Input_2.Name = "Input"
+	Input_2.Parent = Sat
+	Input_2.BackgroundColor3 = Color3.fromRGB(64, 64, 64)
+	Input_2.BackgroundTransparency = 1.000
+	Input_2.BorderColor3 = Color3.fromRGB(96, 96, 96)
+	Input_2.Position = UDim2.new(0, 2, 0, 0)
+	Input_2.Size = UDim2.new(0, 50, 0, 16)
+	Input_2.Font = Enum.Font.SourceSans
+	Input_2.Text = ""
+	Input_2.TextColor3 = Color3.fromRGB(220, 220, 220)
+	Input_2.TextSize = 14.000
+	Input_2.TextXAlignment = Enum.TextXAlignment.Left
+
+	ArrowFrame_3.Name = "ArrowFrame"
+	ArrowFrame_3.Parent = Input_2
+	ArrowFrame_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	ArrowFrame_3.BackgroundTransparency = 1.000
+	ArrowFrame_3.BorderSizePixel = 0
+	ArrowFrame_3.Position = UDim2.new(1, -8, 0, 0)
+	ArrowFrame_3.Size = UDim2.new(0, 16, 1, 0)
+
+	Up_2.Name = "Up"
+	Up_2.Parent = ArrowFrame_3
+	Up_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Up_2.BackgroundTransparency = 1.000
+	Up_2.BorderSizePixel = 0
+	Up_2.Size = UDim2.new(1, 0, 0, 8)
+	Up_2.AutoButtonColor = false
+	Up_2.Font = Enum.Font.SourceSans
+	Up_2.Text = ""
+	Up_2.TextSize = 14.000
+
+	Arrow_4.Name = "Arrow"
+	Arrow_4.Parent = Up_2
+	Arrow_4.BackgroundTransparency = 1.000
+	Arrow_4.Size = UDim2.new(0, 16, 0, 8)
+
+	Frame_12.Parent = Arrow_4
+	Frame_12.BackgroundColor3 = Color3.fromRGB(83, 116, 209)
+	Frame_12.BorderSizePixel = 0
+	Frame_12.Position = UDim2.new(0, 8, 0, 3)
+	Frame_12.Size = UDim2.new(0, 1, 0, 1)
+
+	Frame_13.Parent = Arrow_4
+	Frame_13.BackgroundColor3 = Color3.fromRGB(83, 116, 209)
+	Frame_13.BorderSizePixel = 0
+	Frame_13.Position = UDim2.new(0, 7, 0, 4)
+	Frame_13.Size = UDim2.new(0, 3, 0, 1)
+
+	Frame_14.Parent = Arrow_4
+	Frame_14.BackgroundColor3 = Color3.fromRGB(83, 116, 209)
+	Frame_14.BorderSizePixel = 0
+	Frame_14.Position = UDim2.new(0, 6, 0, 5)
+	Frame_14.Size = UDim2.new(0, 5, 0, 1)
+
+	Down_2.Name = "Down"
+	Down_2.Parent = ArrowFrame_3
+	Down_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Down_2.BackgroundTransparency = 1.000
+	Down_2.BorderSizePixel = 0
+	Down_2.Position = UDim2.new(0, 0, 0, 8)
+	Down_2.Size = UDim2.new(1, 0, 0, 8)
+	Down_2.AutoButtonColor = false
+	Down_2.Font = Enum.Font.SourceSans
+	Down_2.Text = ""
+	Down_2.TextSize = 14.000
+
+	Arrow_5.Name = "Arrow"
+	Arrow_5.Parent = Down_2
+	Arrow_5.BackgroundTransparency = 1.000
+	Arrow_5.Size = UDim2.new(0, 16, 0, 8)
+
+	Frame_15.Parent = Arrow_5
+	Frame_15.BackgroundColor3 = Color3.fromRGB(83, 116, 209)
+	Frame_15.BorderSizePixel = 0
+	Frame_15.Position = UDim2.new(0, 8, 0, 5)
+	Frame_15.Size = UDim2.new(0, 1, 0, 1)
+
+	Frame_16.Parent = Arrow_5
+	Frame_16.BackgroundColor3 = Color3.fromRGB(83, 116, 209)
+	Frame_16.BorderSizePixel = 0
+	Frame_16.Position = UDim2.new(0, 7, 0, 4)
+	Frame_16.Size = UDim2.new(0, 3, 0, 1)
+
+	Frame_17.Parent = Arrow_5
+	Frame_17.BackgroundColor3 = Color3.fromRGB(83, 116, 209)
+	Frame_17.BorderSizePixel = 0
+	Frame_17.Position = UDim2.new(0, 6, 0, 3)
+	Frame_17.Size = UDim2.new(0, 5, 0, 1)
+
+	Title_3.Name = "Title"
+	Title_3.Parent = Sat
+	Title_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Title_3.BackgroundTransparency = 1.000
+	Title_3.Position = UDim2.new(0, -40, 0, 0)
+	Title_3.Size = UDim2.new(0, 34, 1, 0)
+	Title_3.Font = Enum.Font.SourceSans
+	Title_3.Text = "Sat:"
+	Title_3.TextColor3 = Color3.fromRGB(148, 180, 255)
+	Title_3.TextScaled = true
+	Title_3.TextSize = 14.000
+	Title_3.TextWrapped = true
+	Title_3.TextXAlignment = Enum.TextXAlignment.Right
+
+	UICorner_6.CornerRadius = UDim.new(0, 3)
+	UICorner_6.Parent = Sat
+
+	Val.Name = "Val"
+	Val.Parent = Content
+	Val.BackgroundColor3 = Color3.fromRGB(148, 180, 255)
+	Val.BorderColor3 = Color3.fromRGB(96, 96, 96)
+	Val.BorderSizePixel = 0
+	Val.Position = UDim2.new(1.24776781, -180, -0.744274795, 255)
+	Val.Size = UDim2.new(0, 46, 0, 16)
+
+	Input_3.Name = "Input"
+	Input_3.Parent = Val
+	Input_3.BackgroundColor3 = Color3.fromRGB(64, 64, 64)
+	Input_3.BackgroundTransparency = 1.000
+	Input_3.BorderColor3 = Color3.fromRGB(96, 96, 96)
+	Input_3.Position = UDim2.new(0, 2, 0, 0)
+	Input_3.Size = UDim2.new(0, 50, 0, 16)
+	Input_3.Font = Enum.Font.SourceSans
+	Input_3.Text = ""
+	Input_3.TextColor3 = Color3.fromRGB(220, 220, 220)
+	Input_3.TextSize = 14.000
+	Input_3.TextXAlignment = Enum.TextXAlignment.Left
+
+	ArrowFrame_4.Name = "ArrowFrame"
+	ArrowFrame_4.Parent = Input_3
+	ArrowFrame_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	ArrowFrame_4.BackgroundTransparency = 1.000
+	ArrowFrame_4.BorderSizePixel = 0
+	ArrowFrame_4.Position = UDim2.new(1, -8, 0, 0)
+	ArrowFrame_4.Size = UDim2.new(0, 16, 1, 0)
+
+	Up_3.Name = "Up"
+	Up_3.Parent = ArrowFrame_4
+	Up_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Up_3.BackgroundTransparency = 1.000
+	Up_3.BorderSizePixel = 0
+	Up_3.Size = UDim2.new(1, 0, 0, 8)
+	Up_3.AutoButtonColor = false
+	Up_3.Font = Enum.Font.SourceSans
+	Up_3.Text = ""
+	Up_3.TextSize = 14.000
+
+	Arrow_6.Name = "Arrow"
+	Arrow_6.Parent = Up_3
+	Arrow_6.BackgroundTransparency = 1.000
+	Arrow_6.Size = UDim2.new(0, 16, 0, 8)
+
+	Frame_18.Parent = Arrow_6
+	Frame_18.BackgroundColor3 = Color3.fromRGB(83, 116, 209)
+	Frame_18.BorderSizePixel = 0
+	Frame_18.Position = UDim2.new(0, 8, 0, 3)
+	Frame_18.Size = UDim2.new(0, 1, 0, 1)
+
+	Frame_19.Parent = Arrow_6
+	Frame_19.BackgroundColor3 = Color3.fromRGB(83, 116, 209)
+	Frame_19.BorderSizePixel = 0
+	Frame_19.Position = UDim2.new(0, 7, 0, 4)
+	Frame_19.Size = UDim2.new(0, 3, 0, 1)
+
+	Frame_20.Parent = Arrow_6
+	Frame_20.BackgroundColor3 = Color3.fromRGB(83, 116, 209)
+	Frame_20.BorderSizePixel = 0
+	Frame_20.Position = UDim2.new(0, 6, 0, 5)
+	Frame_20.Size = UDim2.new(0, 5, 0, 1)
+
+	Down_3.Name = "Down"
+	Down_3.Parent = ArrowFrame_4
+	Down_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Down_3.BackgroundTransparency = 1.000
+	Down_3.BorderSizePixel = 0
+	Down_3.Position = UDim2.new(0, 0, 0, 8)
+	Down_3.Size = UDim2.new(1, 0, 0, 8)
+	Down_3.AutoButtonColor = false
+	Down_3.Font = Enum.Font.SourceSans
+	Down_3.Text = ""
+	Down_3.TextSize = 14.000
+
+	Arrow_7.Name = "Arrow"
+	Arrow_7.Parent = Down_3
+	Arrow_7.BackgroundTransparency = 1.000
+	Arrow_7.Size = UDim2.new(0, 16, 0, 8)
+
+	Frame_21.Parent = Arrow_7
+	Frame_21.BackgroundColor3 = Color3.fromRGB(83, 116, 209)
+	Frame_21.BorderSizePixel = 0
+	Frame_21.Position = UDim2.new(0, 8, 0, 5)
+	Frame_21.Size = UDim2.new(0, 1, 0, 1)
+
+	Frame_22.Parent = Arrow_7
+	Frame_22.BackgroundColor3 = Color3.fromRGB(83, 116, 209)
+	Frame_22.BorderSizePixel = 0
+	Frame_22.Position = UDim2.new(0, 7, 0, 4)
+	Frame_22.Size = UDim2.new(0, 3, 0, 1)
+
+	Frame_23.Parent = Arrow_7
+	Frame_23.BackgroundColor3 = Color3.fromRGB(83, 116, 209)
+	Frame_23.BorderSizePixel = 0
+	Frame_23.Position = UDim2.new(0, 6, 0, 3)
+	Frame_23.Size = UDim2.new(0, 5, 0, 1)
+
+	Title_4.Name = "Title"
+	Title_4.Parent = Val
+	Title_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Title_4.BackgroundTransparency = 1.000
+	Title_4.Position = UDim2.new(0, -40, 0, 0)
+	Title_4.Size = UDim2.new(0, 34, 1, 0)
+	Title_4.Font = Enum.Font.SourceSans
+	Title_4.Text = "Val:"
+	Title_4.TextColor3 = Color3.fromRGB(148, 180, 255)
+	Title_4.TextScaled = true
+	Title_4.TextSize = 14.000
+	Title_4.TextWrapped = true
+	Title_4.TextXAlignment = Enum.TextXAlignment.Right
+
+	UICorner_7.CornerRadius = UDim.new(0, 3)
+	UICorner_7.Parent = Val
+
+	Green.Name = "Green"
+	Green.Parent = Content
+	Green.BackgroundColor3 = Color3.fromRGB(148, 180, 255)
+	Green.BorderColor3 = Color3.fromRGB(96, 96, 96)
+	Green.BorderSizePixel = 0
+	Green.Position = UDim2.new(0.985848069, -63, -0.44274807, 233)
+	Green.Size = UDim2.new(0, 46, 0, 16)
+
+	Input_4.Name = "Input"
+	Input_4.Parent = Green
+	Input_4.BackgroundColor3 = Color3.fromRGB(64, 64, 64)
+	Input_4.BackgroundTransparency = 1.000
+	Input_4.BorderColor3 = Color3.fromRGB(96, 96, 96)
+	Input_4.Position = UDim2.new(0, 2, 0, 0)
+	Input_4.Size = UDim2.new(0, 50, 0, 16)
+	Input_4.Font = Enum.Font.SourceSans
+	Input_4.Text = ""
+	Input_4.TextColor3 = Color3.fromRGB(220, 220, 220)
+	Input_4.TextSize = 14.000
+	Input_4.TextXAlignment = Enum.TextXAlignment.Left
+
+	ArrowFrame_5.Name = "ArrowFrame"
+	ArrowFrame_5.Parent = Input_4
+	ArrowFrame_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	ArrowFrame_5.BackgroundTransparency = 1.000
+	ArrowFrame_5.BorderSizePixel = 0
+	ArrowFrame_5.Position = UDim2.new(1, -8, 0, 0)
+	ArrowFrame_5.Size = UDim2.new(0, 16, 1, 0)
+
+	Up_4.Name = "Up"
+	Up_4.Parent = ArrowFrame_5
+	Up_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Up_4.BackgroundTransparency = 1.000
+	Up_4.BorderSizePixel = 0
+	Up_4.Size = UDim2.new(1, 0, 0, 8)
+	Up_4.AutoButtonColor = false
+	Up_4.Font = Enum.Font.SourceSans
+	Up_4.Text = ""
+	Up_4.TextSize = 14.000
+
+	Arrow_8.Name = "Arrow"
+	Arrow_8.Parent = Up_4
+	Arrow_8.BackgroundTransparency = 1.000
+	Arrow_8.Size = UDim2.new(0, 16, 0, 8)
+
+	Frame_24.Parent = Arrow_8
+	Frame_24.BackgroundColor3 = Color3.fromRGB(83, 116, 209)
+	Frame_24.BorderSizePixel = 0
+	Frame_24.Position = UDim2.new(0, 8, 0, 3)
+	Frame_24.Size = UDim2.new(0, 1, 0, 1)
+
+	Frame_25.Parent = Arrow_8
+	Frame_25.BackgroundColor3 = Color3.fromRGB(83, 116, 209)
+	Frame_25.BorderSizePixel = 0
+	Frame_25.Position = UDim2.new(0, 7, 0, 4)
+	Frame_25.Size = UDim2.new(0, 3, 0, 1)
+
+	Frame_26.Parent = Arrow_8
+	Frame_26.BackgroundColor3 = Color3.fromRGB(83, 116, 209)
+	Frame_26.BorderSizePixel = 0
+	Frame_26.Position = UDim2.new(0, 6, 0, 5)
+	Frame_26.Size = UDim2.new(0, 5, 0, 1)
+
+	Down_4.Name = "Down"
+	Down_4.Parent = ArrowFrame_5
+	Down_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Down_4.BackgroundTransparency = 1.000
+	Down_4.BorderSizePixel = 0
+	Down_4.Position = UDim2.new(0, 0, 0, 8)
+	Down_4.Size = UDim2.new(1, 0, 0, 8)
+	Down_4.AutoButtonColor = false
+	Down_4.Font = Enum.Font.SourceSans
+	Down_4.Text = ""
+	Down_4.TextSize = 14.000
+
+	Arrow_9.Name = "Arrow"
+	Arrow_9.Parent = Down_4
+	Arrow_9.BackgroundTransparency = 1.000
+	Arrow_9.Size = UDim2.new(0, 16, 0, 8)
+
+	Frame_27.Parent = Arrow_9
+	Frame_27.BackgroundColor3 = Color3.fromRGB(83, 116, 209)
+	Frame_27.BorderSizePixel = 0
+	Frame_27.Position = UDim2.new(0, 8, 0, 5)
+	Frame_27.Size = UDim2.new(0, 1, 0, 1)
+
+	Frame_28.Parent = Arrow_9
+	Frame_28.BackgroundColor3 = Color3.fromRGB(83, 116, 209)
+	Frame_28.BorderSizePixel = 0
+	Frame_28.Position = UDim2.new(0, 7, 0, 4)
+	Frame_28.Size = UDim2.new(0, 3, 0, 1)
+
+	Frame_29.Parent = Arrow_9
+	Frame_29.BackgroundColor3 = Color3.fromRGB(83, 116, 209)
+	Frame_29.BorderSizePixel = 0
+	Frame_29.Position = UDim2.new(0, 6, 0, 3)
+	Frame_29.Size = UDim2.new(0, 5, 0, 1)
+
+	Title_5.Name = "Title"
+	Title_5.Parent = Green
+	Title_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Title_5.BackgroundTransparency = 1.000
+	Title_5.Position = UDim2.new(0, -40, 0, 0)
+	Title_5.Size = UDim2.new(0, 34, 1, 0)
+	Title_5.Font = Enum.Font.SourceSans
+	Title_5.Text = "Green:"
+	Title_5.TextColor3 = Color3.fromRGB(148, 180, 255)
+	Title_5.TextScaled = true
+	Title_5.TextSize = 14.000
+	Title_5.TextWrapped = true
+	Title_5.TextXAlignment = Enum.TextXAlignment.Right
+
+	UICorner_8.CornerRadius = UDim.new(0, 3)
+	UICorner_8.Parent = Green
+
+	Red.Name = "Red"
+	Red.Parent = Content
+	Red.BackgroundColor3 = Color3.fromRGB(148, 180, 255)
+	Red.BorderColor3 = Color3.fromRGB(96, 96, 96)
+	Red.BorderSizePixel = 0
+	Red.Position = UDim2.new(0.985848069, -63, -0.44274807, 211)
+	Red.Size = UDim2.new(0, 46, 0, 16)
+
+	Input_5.Name = "Input"
+	Input_5.Parent = Red
+	Input_5.BackgroundColor3 = Color3.fromRGB(64, 64, 64)
+	Input_5.BackgroundTransparency = 1.000
+	Input_5.BorderColor3 = Color3.fromRGB(96, 96, 96)
+	Input_5.Position = UDim2.new(0, 2, 0, 0)
+	Input_5.Size = UDim2.new(0, 50, 0, 16)
+	Input_5.Font = Enum.Font.SourceSans
+	Input_5.Text = ""
+	Input_5.TextColor3 = Color3.fromRGB(220, 220, 220)
+	Input_5.TextSize = 14.000
+	Input_5.TextXAlignment = Enum.TextXAlignment.Left
+
+	ArrowFrame_6.Name = "ArrowFrame"
+	ArrowFrame_6.Parent = Input_5
+	ArrowFrame_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	ArrowFrame_6.BackgroundTransparency = 1.000
+	ArrowFrame_6.BorderSizePixel = 0
+	ArrowFrame_6.Position = UDim2.new(1, -8, 0, 0)
+	ArrowFrame_6.Size = UDim2.new(0, 16, 1, 0)
+
+	Up_5.Name = "Up"
+	Up_5.Parent = ArrowFrame_6
+	Up_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Up_5.BackgroundTransparency = 1.000
+	Up_5.BorderSizePixel = 0
+	Up_5.Size = UDim2.new(1, 0, 0, 8)
+	Up_5.AutoButtonColor = false
+	Up_5.Font = Enum.Font.SourceSans
+	Up_5.Text = ""
+	Up_5.TextSize = 14.000
+
+	Arrow_10.Name = "Arrow"
+	Arrow_10.Parent = Up_5
+	Arrow_10.BackgroundTransparency = 1.000
+	Arrow_10.Size = UDim2.new(0, 16, 0, 8)
+
+	Frame_30.Parent = Arrow_10
+	Frame_30.BackgroundColor3 = Color3.fromRGB(83, 116, 209)
+	Frame_30.BorderSizePixel = 0
+	Frame_30.Position = UDim2.new(0, 8, 0, 3)
+	Frame_30.Size = UDim2.new(0, 1, 0, 1)
+
+	Frame_31.Parent = Arrow_10
+	Frame_31.BackgroundColor3 = Color3.fromRGB(83, 116, 209)
+	Frame_31.BorderSizePixel = 0
+	Frame_31.Position = UDim2.new(0, 7, 0, 4)
+	Frame_31.Size = UDim2.new(0, 3, 0, 1)
+
+	Frame_32.Parent = Arrow_10
+	Frame_32.BackgroundColor3 = Color3.fromRGB(83, 116, 209)
+	Frame_32.BorderSizePixel = 0
+	Frame_32.Position = UDim2.new(0, 6, 0, 5)
+	Frame_32.Size = UDim2.new(0, 5, 0, 1)
+
+	Down_5.Name = "Down"
+	Down_5.Parent = ArrowFrame_6
+	Down_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Down_5.BackgroundTransparency = 1.000
+	Down_5.BorderSizePixel = 0
+	Down_5.Position = UDim2.new(0, 0, 0, 8)
+	Down_5.Size = UDim2.new(1, 0, 0, 8)
+	Down_5.AutoButtonColor = false
+	Down_5.Font = Enum.Font.SourceSans
+	Down_5.Text = ""
+	Down_5.TextSize = 14.000
+
+	Arrow_11.Name = "Arrow"
+	Arrow_11.Parent = Down_5
+	Arrow_11.BackgroundTransparency = 1.000
+	Arrow_11.Size = UDim2.new(0, 16, 0, 8)
+
+	Frame_33.Parent = Arrow_11
+	Frame_33.BackgroundColor3 = Color3.fromRGB(83, 116, 209)
+	Frame_33.BorderSizePixel = 0
+	Frame_33.Position = UDim2.new(0, 8, 0, 5)
+	Frame_33.Size = UDim2.new(0, 1, 0, 1)
+
+	Frame_34.Parent = Arrow_11
+	Frame_34.BackgroundColor3 = Color3.fromRGB(83, 116, 209)
+	Frame_34.BorderSizePixel = 0
+	Frame_34.Position = UDim2.new(0, 7, 0, 4)
+	Frame_34.Size = UDim2.new(0, 3, 0, 1)
+
+	Frame_35.Parent = Arrow_11
+	Frame_35.BackgroundColor3 = Color3.fromRGB(83, 116, 209)
+	Frame_35.BorderSizePixel = 0
+	Frame_35.Position = UDim2.new(0, 6, 0, 3)
+	Frame_35.Size = UDim2.new(0, 5, 0, 1)
+
+	Title_6.Name = "Title"
+	Title_6.Parent = Red
+	Title_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Title_6.BackgroundTransparency = 1.000
+	Title_6.Position = UDim2.new(0, -40, 0, 0)
+	Title_6.Size = UDim2.new(0, 34, 1, 0)
+	Title_6.Font = Enum.Font.SourceSans
+	Title_6.Text = "Red:"
+	Title_6.TextColor3 = Color3.fromRGB(148, 180, 255)
+	Title_6.TextScaled = true
+	Title_6.TextSize = 14.000
+	Title_6.TextWrapped = true
+	Title_6.TextXAlignment = Enum.TextXAlignment.Right
+
+	UICorner_9.CornerRadius = UDim.new(0, 3)
+	UICorner_9.Parent = Red
+
+	Blue.Name = "Blue"
+	Blue.Parent = Content
+	Blue.BackgroundColor3 = Color3.fromRGB(148, 180, 255)
+	Blue.BorderColor3 = Color3.fromRGB(96, 96, 96)
+	Blue.BorderSizePixel = 0
+	Blue.Position = UDim2.new(0.985848069, -63, -0.44274807, 255)
+	Blue.Size = UDim2.new(0, 46, 0, 16)
+
+	Input_6.Name = "Input"
+	Input_6.Parent = Blue
+	Input_6.BackgroundColor3 = Color3.fromRGB(64, 64, 64)
+	Input_6.BackgroundTransparency = 1.000
+	Input_6.BorderColor3 = Color3.fromRGB(96, 96, 96)
+	Input_6.Position = UDim2.new(0, 2, 0, 0)
+	Input_6.Size = UDim2.new(0, 50, 0, 16)
+	Input_6.Font = Enum.Font.SourceSans
+	Input_6.Text = ""
+	Input_6.TextColor3 = Color3.fromRGB(220, 220, 220)
+	Input_6.TextSize = 14.000
+	Input_6.TextXAlignment = Enum.TextXAlignment.Left
+
+	ArrowFrame_7.Name = "ArrowFrame"
+	ArrowFrame_7.Parent = Input_6
+	ArrowFrame_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	ArrowFrame_7.BackgroundTransparency = 1.000
+	ArrowFrame_7.BorderSizePixel = 0
+	ArrowFrame_7.Position = UDim2.new(1, -8, 0, 0)
+	ArrowFrame_7.Size = UDim2.new(0, 16, 1, 0)
+
+	Up_6.Name = "Up"
+	Up_6.Parent = ArrowFrame_7
+	Up_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Up_6.BackgroundTransparency = 1.000
+	Up_6.BorderSizePixel = 0
+	Up_6.Size = UDim2.new(1, 0, 0, 8)
+	Up_6.AutoButtonColor = false
+	Up_6.Font = Enum.Font.SourceSans
+	Up_6.Text = ""
+	Up_6.TextSize = 14.000
+
+	Arrow_12.Name = "Arrow"
+	Arrow_12.Parent = Up_6
+	Arrow_12.BackgroundTransparency = 1.000
+	Arrow_12.Size = UDim2.new(0, 16, 0, 8)
+
+	Frame_36.Parent = Arrow_12
+	Frame_36.BackgroundColor3 = Color3.fromRGB(83, 116, 209)
+	Frame_36.BorderSizePixel = 0
+	Frame_36.Position = UDim2.new(0, 8, 0, 3)
+	Frame_36.Size = UDim2.new(0, 1, 0, 1)
+
+	Frame_37.Parent = Arrow_12
+	Frame_37.BackgroundColor3 = Color3.fromRGB(83, 116, 209)
+	Frame_37.BorderSizePixel = 0
+	Frame_37.Position = UDim2.new(0, 7, 0, 4)
+	Frame_37.Size = UDim2.new(0, 3, 0, 1)
+
+	Frame_38.Parent = Arrow_12
+	Frame_38.BackgroundColor3 = Color3.fromRGB(83, 116, 209)
+	Frame_38.BorderSizePixel = 0
+	Frame_38.Position = UDim2.new(0, 6, 0, 5)
+	Frame_38.Size = UDim2.new(0, 5, 0, 1)
+
+	Down_6.Name = "Down"
+	Down_6.Parent = ArrowFrame_7
+	Down_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Down_6.BackgroundTransparency = 1.000
+	Down_6.BorderSizePixel = 0
+	Down_6.Position = UDim2.new(0, 0, 0, 8)
+	Down_6.Size = UDim2.new(1, 0, 0, 8)
+	Down_6.AutoButtonColor = false
+	Down_6.Font = Enum.Font.SourceSans
+	Down_6.Text = ""
+	Down_6.TextSize = 14.000
+
+	Arrow_13.Name = "Arrow"
+	Arrow_13.Parent = Down_6
+	Arrow_13.BackgroundTransparency = 1.000
+	Arrow_13.Size = UDim2.new(0, 16, 0, 8)
+
+	Frame_39.Parent = Arrow_13
+	Frame_39.BackgroundColor3 = Color3.fromRGB(83, 116, 209)
+	Frame_39.BorderSizePixel = 0
+	Frame_39.Position = UDim2.new(0, 8, 0, 5)
+	Frame_39.Size = UDim2.new(0, 1, 0, 1)
+
+	Frame_40.Parent = Arrow_13
+	Frame_40.BackgroundColor3 = Color3.fromRGB(83, 116, 209)
+	Frame_40.BorderSizePixel = 0
+	Frame_40.Position = UDim2.new(0, 7, 0, 4)
+	Frame_40.Size = UDim2.new(0, 3, 0, 1)
+
+	Frame_41.Parent = Arrow_13
+	Frame_41.BackgroundColor3 = Color3.fromRGB(83, 116, 209)
+	Frame_41.BorderSizePixel = 0
+	Frame_41.Position = UDim2.new(0, 6, 0, 3)
+	Frame_41.Size = UDim2.new(0, 5, 0, 1)
+
+	Title_7.Name = "Title"
+	Title_7.Parent = Blue
+	Title_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Title_7.BackgroundTransparency = 1.000
+	Title_7.Position = UDim2.new(0, -40, 0, 0)
+	Title_7.Size = UDim2.new(0, 34, 1, 0)
+	Title_7.Font = Enum.Font.SourceSans
+	Title_7.Text = "Blue:"
+	Title_7.TextColor3 = Color3.fromRGB(148, 180, 255)
+	Title_7.TextScaled = true
+	Title_7.TextSize = 14.000
+	Title_7.TextWrapped = true
+	Title_7.TextXAlignment = Enum.TextXAlignment.Right
+
+	UICorner_10.CornerRadius = UDim.new(0, 3)
+	UICorner_10.Parent = Blue
+
+	Ok.Name = "Ok"
+	Ok.Parent = Content
+	Ok.BackgroundColor3 = Color3.fromRGB(148, 180, 255)
+	Ok.BorderColor3 = Color3.fromRGB(96, 96, 96)
+	Ok.BorderSizePixel = 0
+	Ok.Position = UDim2.new(0.506696463, -210, 0.97709924, -28)
+	Ok.Size = UDim2.new(0, 100, 0, 25)
+	Ok.AutoButtonColor = false
+	Ok.Font = Enum.Font.GothamBlack
+	Ok.Text = "OK"
+	Ok.TextColor3 = Color3.fromRGB(255, 255, 255)
+	Ok.TextSize = 14.000
+
+	UICorner_11.Parent = Ok
+
+	Cancel.Name = "Cancel"
+	Cancel.Parent = Content
+	Cancel.BackgroundColor3 = Color3.fromRGB(148, 180, 255)
+	Cancel.BorderColor3 = Color3.fromRGB(96, 96, 96)
+	Cancel.BorderSizePixel = 0
+	Cancel.Position = UDim2.new(0.542410731, -105, 0.97709924, -28)
+	Cancel.Size = UDim2.new(0, 100, 0, 25)
+	Cancel.AutoButtonColor = false
+	Cancel.Font = Enum.Font.GothamBlack
+	Cancel.Text = "Cancel"
+	Cancel.TextColor3 = Color3.fromRGB(255, 255, 255)
+	Cancel.TextSize = 14.000
+
+	UICorner_12.Parent = Cancel
+
+	UICorner_13.Parent = Content
+
+	BasicColors.Name = "BasicColors"
+	BasicColors.Parent = Content
+	BasicColors.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	BasicColors.BackgroundTransparency = 1.000
+	BasicColors.Position = UDim2.new(0, 5, 0, 5)
+	BasicColors.Size = UDim2.new(0, 180, 0, 200)
+
+	CustomColors.Name = "CustomColors"
+	CustomColors.Parent = Content
+	CustomColors.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	CustomColors.BackgroundTransparency = 1.000
+	CustomColors.Position = UDim2.new(0, 5, 0, 210)
+	CustomColors.Size = UDim2.new(0, 180, 0, 90)
+
+	TopBar.Name = "TopBar"
+	TopBar.Parent = ColorPicker
+	TopBar.BackgroundColor3 = Color3.fromRGB(83, 116, 209)
+	TopBar.BorderSizePixel = 0
+	TopBar.Position = UDim2.new(0, 0, 0.124242425, 0)
+	TopBar.Size = UDim2.new(0.99555558, 0, 0, 25)
+
+	UICorner_14.Parent = TopBar
+
+	Excess.Name = "Excess"
+	Excess.Parent = ColorPicker
+	Excess.BackgroundColor3 = Color3.fromRGB(83, 116, 209)
+	Excess.BorderSizePixel = 0
+	Excess.Position = UDim2.new(0, 0, 0.181818187, 0)
+	Excess.Size = UDim2.new(0.99555558, 0, -0.0393939391, 25)
+	
+	a.ColorPicker = ColorPicker
+	
+	--Drag
+	local dragging
+	local dragInput
+	local dragStart
+	local startPos
+
+	local function update(input)
+		local delta = input.Position - dragStart
+		game:GetService("TweenService"):Create(ColorPicker, TweenInfo.new(0.1), {Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)}):Play()
+	end
+
+	TopBar.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			dragging = true
+			dragStart = input.Position
+			startPos = ColorPicker.Position
+
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragging = false
+				end
+			end)
+		end
+	end)
+
+	TopBar.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+			dragInput = input
+		end
+	end)
+
+	game:GetService("UserInputService").InputChanged:Connect(function(input)
+		if input == dragInput and dragging then
+			update(input)
+		end
+	end)
+	
+	a.LastColor = nil;
+	
+	return setmetatable(a,colorPicker)
+end
+
+function colorPicker:ToggleUI(lastColor)
+	if self.Toggled then
+		self.Toggled = false
+		self.ColorPicker.Visible = false
+	else
+		self.LastColor = lastColor
+		self.Toggled = true
+		self.ColorPicker.Visible = true
+	end
+end
+
+function colorPicker:returnAsset()
+	return self.ColorPicker
+end
+
+function colorPicker:Initialize(startingColor, onChanged, onConfirm, onCancelled, colorAsset)
+	local ColorPicker do
+		ColorPicker = {}
+
+		ColorPicker.new = function()
+			local newMt = setmetatable({},{})
+
+			local pickerGui = self.ColorPicker
+			local pickerTopBar = pickerGui.TopBar
+			local pickerFrame = pickerGui.Content
+			local colorSpace = pickerFrame.ColorSpaceFrame.ColorSpace
+			local colorStrip = pickerFrame.ColorStrip
+			local previewFrame = pickerFrame.Preview
+			local okButton = pickerFrame.Ok
+			local cancelButton = pickerFrame.Cancel
+
+			local colorScope = colorSpace.Scope
+			local colorArrow = pickerFrame.ArrowFrame.Arrow
+
+			local hueInput = pickerFrame.Hue.Input
+			local satInput = pickerFrame.Sat.Input
+			local valInput = pickerFrame.Val.Input
+
+			local redInput = pickerFrame.Red.Input
+			local greenInput = pickerFrame.Green.Input
+			local blueInput = pickerFrame.Blue.Input
+
+			local user = game:GetService("UserInputService")
+			local mouse = game:GetService("Players").LocalPlayer:GetMouse()
+
+			local hue,sat,val = 0,0,1
+			local red,green,blue = 1,1,1
+			local chosenColor = Color3.new(0,0,0)
+
+			local function updateColor(noupdate)
+				local relativeX,relativeY,relativeStripY = 219 - hue*219, 199 - sat*199, 199 - val*199
+				local hsvColor = Color3.fromHSV(hue,sat,val)
+
+				if noupdate == 2 or not noupdate then
+					hueInput.Text = tostring(math.ceil(359*hue))
+					satInput.Text = tostring(math.ceil(255*sat))
+					valInput.Text = tostring(math.floor(255*val))
+				end
+				if noupdate == 1 or not noupdate then
+					redInput.Text = tostring(math.floor(255*red))
+					greenInput.Text = tostring(math.floor(255*green))
+					blueInput.Text = tostring(math.floor(255*blue))
+				end
+
+				chosenColor = Color3.new(red,green,blue)
+				self.Color = chosenColor
+				
+				colorScope.Position = UDim2.new(0,relativeX-9,0,relativeY-9)
+				colorStrip.ImageColor3 = Color3.fromHSV(hue,sat,1)
+				colorArrow.Position = UDim2.new(0,-2,0,relativeStripY-4)
+				previewFrame.BackgroundColor3 = chosenColor
+
+				newMt.Color = chosenColor
+				if newMt.Changed then newMt:Changed(chosenColor) end
+			end
+
+			local function colorSpaceInput()
+				local relativeX = mouse.X - colorSpace.AbsolutePosition.X
+				local relativeY = mouse.Y - colorSpace.AbsolutePosition.Y
+
+				if relativeX < 0 then relativeX = 0 elseif relativeX > 219 then relativeX = 219 end
+				if relativeY < 0 then relativeY = 0 elseif relativeY > 199 then relativeY = 199 end
+
+				hue = (219 - relativeX)/219
+				sat = (199 - relativeY)/199
+
+				local hsvColor = Color3.fromHSV(hue,sat,val)
+				red,green,blue = hsvColor.r,hsvColor.g,hsvColor.b
+
+				updateColor()
+			end
+
+			local function colorStripInput()
+				local relativeY = mouse.Y - colorStrip.AbsolutePosition.Y
+
+				if relativeY < 0 then relativeY = 0 elseif relativeY > 199 then relativeY = 199 end	
+
+				val = (199 - relativeY)/199
+
+				local hsvColor = Color3.fromHSV(hue,sat,val)
+				red,green,blue = hsvColor.r,hsvColor.g,hsvColor.b
+
+				updateColor()
+			end
+
+			local function hookButtons(frame,func)
+				frame.ArrowFrame.Up.InputBegan:Connect(function(input)
+					if input.UserInputType == Enum.UserInputType.MouseMovement then
+						frame.ArrowFrame.Up.BackgroundTransparency = 0.5
+					elseif input.UserInputType == Enum.UserInputType.MouseButton1 then
+						local releaseEvent,runEvent
+
+						local startTime = tick()
+						local pressing = true
+						local startNum = tonumber(frame.Text)
+
+						if not startNum then return end
+
+						releaseEvent = user.InputEnded:Connect(function(input)
+							if input.UserInputType ~= Enum.UserInputType.MouseButton1 then return end
+							releaseEvent:Disconnect()
+							pressing = false
+						end)
+
+						startNum = startNum + 1
+						func(startNum)
+						while pressing do
+							if tick()-startTime > 0.3 then
+								startNum = startNum + 1
+								func(startNum)
+							end
+							wait(0.1)
+						end
+					end
+				end)
+
+				frame.ArrowFrame.Up.InputEnded:Connect(function(input)
+					if input.UserInputType == Enum.UserInputType.MouseMovement then
+						--frame.ArrowFrame.Up.BackgroundTransparency = 1
+					end
+				end)
+
+				frame.ArrowFrame.Down.InputBegan:Connect(function(input)
+					if input.UserInputType == Enum.UserInputType.MouseMovement then
+						--frame.ArrowFrame.Down.BackgroundTransparency = 0.5
+					elseif input.UserInputType == Enum.UserInputType.MouseButton1 then
+						local releaseEvent,runEvent
+
+						local startTime = tick()
+						local pressing = true
+						local startNum = tonumber(frame.Text)
+
+						if not startNum then return end
+
+						releaseEvent = user.InputEnded:Connect(function(input)
+							if input.UserInputType ~= Enum.UserInputType.MouseButton1 then return end
+							releaseEvent:Disconnect()
+							pressing = false
+						end)
+
+						startNum = startNum - 1
+						func(startNum)
+						while pressing do
+							if tick()-startTime > 0.3 then
+								startNum = startNum - 1
+								func(startNum)
+							end
+							wait(0.1)
+						end
+					end
+				end)
+
+				frame.ArrowFrame.Down.InputEnded:Connect(function(input)
+					if input.UserInputType == Enum.UserInputType.MouseMovement then
+						--frame.ArrowFrame.Down.BackgroundTransparency = 1
+					end
+				end)
+			end
+
+			colorSpace.InputBegan:Connect(function(input)
+				if input.UserInputType == Enum.UserInputType.MouseButton1 then
+					local releaseEvent,mouseEvent
+
+					releaseEvent = user.InputEnded:Connect(function(input)
+						if input.UserInputType ~= Enum.UserInputType.MouseButton1 then return end
+						releaseEvent:Disconnect()
+						mouseEvent:Disconnect()
+					end)
+
+					mouseEvent = user.InputChanged:Connect(function(input)
+						if input.UserInputType == Enum.UserInputType.MouseMovement then
+							colorSpaceInput()
+						end
+					end)
+
+					colorSpaceInput()
+				end
+			end)
+
+			colorStrip.InputBegan:Connect(function(input)
+				if input.UserInputType == Enum.UserInputType.MouseButton1 then
+					local releaseEvent,mouseEvent
+
+					releaseEvent = user.InputEnded:Connect(function(input)
+						if input.UserInputType ~= Enum.UserInputType.MouseButton1 then return end
+						releaseEvent:Disconnect()
+						mouseEvent:Disconnect()
+					end)
+
+					mouseEvent = user.InputChanged:Connect(function(input)
+						if input.UserInputType == Enum.UserInputType.MouseMovement then
+							colorStripInput()
+						end
+					end)
+
+					colorStripInput()
+				end
+			end)
+
+			local function updateHue(str)
+				local num = tonumber(str)
+				if num then
+					hue = math.clamp(math.floor(num),0,359)/359
+					local hsvColor = Color3.fromHSV(hue,sat,val)
+					red,green,blue = hsvColor.r,hsvColor.g,hsvColor.b
+					hueInput.Text = tostring(hue*359)
+					updateColor(1)
+				end
+			end
+			hueInput.FocusLost:Connect(function() updateHue(hueInput.Text) end) hookButtons(hueInput,updateHue)
+
+			local function updateSat(str)
+				local num = tonumber(str)
+				if num then
+					sat = math.clamp(math.floor(num),0,255)/255
+					local hsvColor = Color3.fromHSV(hue,sat,val)
+					red,green,blue = hsvColor.r,hsvColor.g,hsvColor.b
+					satInput.Text = tostring(sat*255)
+					updateColor(1)
+				end
+			end
+			satInput.FocusLost:Connect(function() updateSat(satInput.Text) end) hookButtons(satInput,updateSat)
+
+			local function updateVal(str)
+				local num = tonumber(str)
+				if num then
+					val = math.clamp(math.floor(num),0,255)/255
+					local hsvColor = Color3.fromHSV(hue,sat,val)
+					red,green,blue = hsvColor.r,hsvColor.g,hsvColor.b
+					valInput.Text = tostring(val*255)
+					updateColor(1)
+				end
+			end
+			valInput.FocusLost:Connect(function() updateVal(valInput.Text) end) hookButtons(valInput,updateVal)
+
+			local function updateRed(str)
+				local num = tonumber(str)
+				if num then
+					red = math.clamp(math.floor(num),0,255)/255
+					local newColor = Color3.new(red,green,blue)
+					hue,sat,val = Color3.toHSV(newColor)
+					redInput.Text = tostring(red*255)
+					updateColor(2)
+				end
+			end
+			redInput.FocusLost:Connect(function() updateRed(redInput.Text) end) hookButtons(redInput,updateRed)
+
+			local function updateGreen(str)
+				local num = tonumber(str)
+				if num then
+					green = math.clamp(math.floor(num),0,255)/255
+					local newColor = Color3.new(red,green,blue)
+					hue,sat,val = Color3.toHSV(newColor)
+					greenInput.Text = tostring(green*255)
+					updateColor(2)
+				end
+			end
+			greenInput.FocusLost:Connect(function() updateGreen(greenInput.Text) end) hookButtons(greenInput,updateGreen)
+
+			local function updateBlue(str)
+				local num = tonumber(str)
+				if num then
+					blue = math.clamp(math.floor(num),0,255)/255
+					local newColor = Color3.new(red,green,blue)
+					hue,sat,val = Color3.toHSV(newColor)
+					blueInput.Text = tostring(blue*255)
+					updateColor(2)
+				end
+			end
+			blueInput.FocusLost:Connect(function() updateBlue(blueInput.Text) end) hookButtons(blueInput,updateBlue)
+
+			local colorChoice = Instance.new("TextButton")
+			colorChoice.Name = "Choice"
+			colorChoice.Size = UDim2.new(0,25,0,18)
+			colorChoice.BorderColor3 = Color3.new(96/255,96/255,96/255)
+			colorChoice.Text = ""
+			colorChoice.AutoButtonColor = false
+
+			local row = 0
+			local column = 0
+
+			row = 0
+			column = 0
+
+			local dragging
+			local dragInput
+			local dragStart
+			local startPos
+
+			local function update(input)
+				local delta = input.Position - dragStart
+				game:GetService("TweenService"):Create(pickerGui, TweenInfo.new(0.1), {Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)}):Play()
+			end
+
+			pickerTopBar.InputBegan:Connect(function(input)
+				if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+					dragging = true
+					dragStart = input.Position
+					startPos = pickerGui.Position
+
+					input.Changed:Connect(function()
+						if input.UserInputState == Enum.UserInputState.End then
+							dragging = false
+						end
+					end)
+				end
+			end)
+
+			pickerTopBar.InputChanged:Connect(function(input)
+				if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+					dragInput = input
+				end
+			end)
+
+			game:GetService("UserInputService").InputChanged:Connect(function(input)
+				if input == dragInput and dragging then
+					update(input)
+				end
+			end)
+
+			okButton.MouseButton1Click:Connect(function() if newMt.Confirm then newMt:Confirm(chosenColor) end pickerGui.Visible = false end)
+			okButton.InputBegan:Connect(function(input) if input.UserInputType == Enum.UserInputType.MouseMovement then okButton.BackgroundTransparency = 0.4 end end)
+			okButton.InputEnded:Connect(function(input) if input.UserInputType == Enum.UserInputType.MouseMovement then okButton.BackgroundTransparency = 0 end end)
+
+			cancelButton.MouseButton1Click:Connect(function() if newMt.Cancel then newMt:Cancel() end pickerGui.Visible = false end)
+			cancelButton.InputBegan:Connect(function(input) if input.UserInputType == Enum.UserInputType.MouseMovement then cancelButton.BackgroundTransparency = 0.4 end end)
+			cancelButton.InputEnded:Connect(function(input) if input.UserInputType == Enum.UserInputType.MouseMovement then cancelButton.BackgroundTransparency = 0 end end)
+
+			updateColor()
+
+			newMt.SetColor = function(self,color)
+				red,green,blue = color.r,color.g,color.b
+				hue,sat,val = Color3.toHSV(color)
+				updateColor()
+			end
+
+			return newMt
+		end
+	end
+
+	local picker = ColorPicker.new()
+	picker.SetColor(self,startingColor)
+colorAsset.ColorRGB.Text = self.Name.." - rgb("..math.modf(startingColor.R*255)..", "..math.modf(startingColor.G*255)..", "..math.modf(startingColor.B*255)..")"
+	picker.Confirm = function(self,color) onConfirm() end
+	picker.Changed = function(a,color) colorAsset.Color.BackgroundColor3 = color colorAsset.ColorRGB.Text = self.Name.." - rgb("..math.modf(color.R*255)..", "..math.modf(color.G*255)..", "..math.modf(color.B*255)..")"  onChanged() end
+	picker.Cancel = function(a) picker.SetColor(a, self.LastColor) self.Color = self.LastColor colorAsset.Color.BackgroundColor3 = self.LastColor colorAsset.ColorRGB.Text = self.Name.." - rgb("..math.modf(self.LastColor.R*255)..", "..math.modf(self.LastColor.G*255)..", "..math.modf(self.LastColor.B*255)..")" onCancelled() end
+end
+
+return colorPicker
